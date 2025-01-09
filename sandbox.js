@@ -74,6 +74,31 @@ const myFunc = (callbackFunc) => {
   callbackFunc(value);
 };
 
-myFunc(function (value) {
+myFunc(value => {
   console.log(value);
-})
+});
+
+let pokemons = ['Charizard', 'Bulbasaur', 'Squirtle', 'Pikachu', 'Jigglypuff'];
+//function will run for each element in the array
+// pokemons.forEach(function (pokemon) {
+//   console.log(pokemon);
+// }); now convert to arrow function
+// pokemons.forEach((pokemon, index) => {
+//   console.log(index, pokemon);
+// });
+
+//or use a callback function like this
+// const logPokemons = (pokemon, index) => {
+//   console.log(`${index} - ${pokemon}`);
+// };
+// pokemons.forEach(logPokemons);
+
+//Now to display it to the HTML page
+const ul = document.querySelector('.pokemon');
+let html = ``;
+pokemons.forEach(pokemon => {
+  html += `<li style="color: purple">${pokemon}</li>`;
+});
+
+console.log(html);
+ul.innerHTML = html;
