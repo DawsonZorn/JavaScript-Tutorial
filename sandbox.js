@@ -4,7 +4,8 @@
 // }
 
 let goat = 'Messi';
-
+let newGoat = goat.toUpperCase();
+console.log(newGoat);
 let message = `Hello, ${goat}`;
 
 let favoritePlayers = ['Messi', 'Mitoma', 'Robben'];
@@ -50,8 +51,29 @@ switch (grade) {
     console.log('You failed');
 }
 
-function greet() {
-  console.log('Hello');
+function greet(name) {
+  console.log(`Hello, ${name}`);
 }
 
-greet();
+const myName = greet('Dawson');
+console.log(myName);
+
+
+let pi = 3.14;
+const calcArea = (radius) => {
+  return pi * radius ** 2;
+}
+
+const area = calcArea(5);
+console.log(area);
+
+//callbacks and foreach
+
+const myFunc = (callbackFunc) => {
+  let value = 50;
+  callbackFunc(value);
+};
+
+myFunc(function (value) {
+  console.log(value);
+})
