@@ -33,23 +33,23 @@ for (let i = 0; i < alphabet.length; i++) {
   }
 }
 
-let grade = prompt('Enter your grade: ');
-switch (grade) {
-  case 'B':
-    console.log('Very good you got a B!');
-    break;
-  case 'C':
-    console.log('Not bad you got a C!');
-    break;
-  case 'D':
-    console.log('Okay you got a D!');
-    break;
-  case 'A':
-    console.log('Amazing you got a A!');
-    break;
-  default:
-    console.log('You failed');
-}
+//let grade = prompt('Enter your grade: ');
+// switch (grade) {
+//   case 'B':
+//     console.log('Very good you got a B!');
+//     break;
+//   case 'C':
+//     console.log('Not bad you got a C!');
+//     break;
+//   case 'D':
+//     console.log('Okay you got a D!');
+//     break;
+//   case 'A':
+//     console.log('Amazing you got a A!');
+//     break;
+//   default:
+//     console.log('You failed');
+// }
 
 function greet(name) {
   console.log(`Hello, ${name}`);
@@ -153,7 +153,13 @@ const games = [
   { title: 'Call of Duty Black Ops 1', genre: 'FPS', rating: 8 },
   { title: 'Skyrim', genre: 'RPG', rating: 10 }
 ];
-
+function logNewGames() {
+  console.log('Games I have played: ');
+  games.forEach(game => {
+    console.log(game.title, game.genre, game.rating);
+  });
+}
+logNewGames();
 //Built in JavaScript math objects
 console.log(Math.PI); //pi
 console.log(Math.E); //Euler's number
@@ -167,3 +173,68 @@ const random = Math.random();
 console.log(random);
 //random number between 1 and 100
 console.log(Math.round(random * 100));
+
+//Stack and Heap is a memory management system in JavaScript that stores variables and functions in memory during runtime primitive data types are stored in the stack and reference data types are stored in the heap
+
+
+//Interacting with a browser with the DOM (Document Object Model)
+
+//reference to paragraph element
+const para = document.querySelector('p');
+console.log(para);
+//to select error class
+const error = document.querySelector('.error');
+//if there was a div with the class of error you would then use querySelector('div.error'); to make sure it doesnt take the first div or first error class
+// to select an element highlight the element in the console and right click and copy selector to get the css selector
+
+//grabbing mulitple elements
+const paras = document.querySelectorAll('p'); //returns a node list that is similar to an array but you cannot use array methods on it like push or pop but you can use forEach
+paras.forEach(para => {
+  console.log(para);
+})
+
+//getting an element by its ID
+const title = document.getElementById('page-title');
+
+//getting elements by their class name
+const errors = document.getElementsByClassName('error'); //since its not a query selector its implied we are getting elements by class name so dont need to add .error
+//it also returns an html collection which is similar to a node list but you cannot use array methods on it like a forEach loop
+
+//getting elements by their tag name
+const paragraphs = document.getElementsByTagName('p');
+console.log(paragraphs[1]);
+
+//changing text content and html inside elements
+const p2 = document.querySelector('p');
+console.log(p2.innerText); //gets the text inside the element
+p2.innerText = 'Hello, I have been changed'; //changes the text inside the element if you want to append to it you can do += instead
+//p2.innerHTML = '<h1>Hello, I am a new h1</h1>'; changes the html inside the element
+
+const paragraphs2 = document.querySelectorAll('p');
+paragraphs2.forEach(para => {
+  console.log(para.innerText); //prints all paragraph text to the console
+  para.innerText += ' This is new text'; //appends the message onto the already existing text
+})
+const content = document.querySelector('.content'); //reference to the content class
+const people = ['Naruto', 'Sasuke', 'Sakura'];
+people.forEach(person => { //loops through the people array and appends each person to the content class
+  content.innerHTML += `<p>${person}</p>`;
+});
+
+//getting and setting attributes
+const link = document.querySelector('a');
+
+console.log(link.getAttribute('href')); //gets the href attribute of the link
+
+link.setAttribute('href', 'https://www.youtube.com'); //changes the href attribute of the link
+link.innerText = 'YouTube'; //changes the text inside the link
+
+const mssg = document.querySelector('p');
+console.log(mssg.getAttribute('class')); //gets the class attribute of the paragraph
+mssg.setAttribute('class', 'success'); //changes the class attribute of the paragraph from error to success
+mssg.setAttribute('style', 'color: green;'); //changes the style attribute of the paragraph to green
+// so no style is overwritten you can use the style property instead of setAttribute
+mssg.style.color = 'blue';
+//where a property like font-size is used you can use camel case like fontSize
+mssg.style.fontSize = '2em';
+// mssg.style.fontSize = ''; //removes the font size
