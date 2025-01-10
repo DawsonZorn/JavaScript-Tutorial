@@ -155,3 +155,15 @@ const games = [
 ];
 
 //Built in JavaScript math objects
+console.log(Math.PI); //pi
+console.log(Math.E); //Euler's number
+const areaCircle = 7.7;
+console.log(Math.round(areaCircle)); //rounds to nearest whole number
+console.log(Math.floor(areaCircle)); //rounds down
+console.log(Math.ceil(areaCircle)); //rounds up
+console.log(Math.trunc(areaCircle)); //removes decimal
+//random number between 0 and 1
+const random = Math.random();
+console.log(random);
+//random number between 1 and 100
+console.log(Math.round(random * 100));
