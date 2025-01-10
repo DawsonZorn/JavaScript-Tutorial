@@ -100,5 +100,58 @@ pokemons.forEach(pokemon => {
   html += `<li style="color: purple">${pokemon}</li>`;
 });
 
-console.log(html);
+// console.log(html);
 ul.innerHTML = html;
+
+//Objects
+let user = {
+  name: 'Dawson',
+  age: 22,
+  email: 'email@outlook.com',
+  //storing objects in arrays
+  blogs: [
+    { title: 'Why I love football', likes: 30 },
+    { title: '10 things to do in Valheim', likes: 50 }
+  ],
+  logBlogs() {
+    console.log('This user has made the following blogs: ');
+    this.blogs.forEach(blog => {
+      console.log(blog.title, blog.likes);
+    })
+  },
+  sport: 'Football',
+  favoriteTeam: 'Bayern Munich',
+  favoriteGames: ['Halo Reach', 'Call of Duty Black Ops 1', 'Skyrim', 'Valheim', 'Cyberpunk 2077', 'CS:GO'],
+  login: function () {
+    console.log('User logged in');
+  },
+  logGames: function () {
+    console.log('User has played the following games: ');
+    this.favoriteGames.forEach(game => { //pass game as a callback function to display each game in array
+      //to use this inside a function you need to use a regular function and not an arrow function as it will just refer to the default window object for this
+      console.log(game);
+    });
+  }
+};
+// functions in objects can also be written like this: logGames () {} instead of logGames: function () {}
+console.log(user);
+console.log(user.favoriteTeam);
+
+user.favoriteTeam = 'Barcelona';
+console.log(user.favoriteTeam); // or console.log(user['favoriteTeam']);
+
+console.log(typeof user); //object
+
+user.login();
+
+user.logGames();
+user.logBlogs()
+
+//making an object on its own
+const games = [
+  { title: 'Halo Reach', genre: 'FPS', rating: 9 },
+  { title: 'Call of Duty Black Ops 1', genre: 'FPS', rating: 8 },
+  { title: 'Skyrim', genre: 'RPG', rating: 10 }
+];
+
+//Built in JavaScript math objects
