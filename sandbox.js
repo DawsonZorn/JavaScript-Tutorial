@@ -238,3 +238,22 @@ mssg.style.color = 'blue';
 //where a property like font-size is used you can use camel case like fontSize
 mssg.style.fontSize = '2em';
 // mssg.style.fontSize = ''; //removes the font size
+
+//adding and removing classes
+const title2 = document.querySelector('h1');
+title2.classList.add('title'); //adds the title class to the h1 element
+title2.classList.remove('title'); //removes the title class from the h1 element
+
+//toggling classes
+const toggle = document.querySelector('p');
+toggle.forEach(para => {
+  if (para.classList.contains('error')) {
+    para.classList.add('error');
+  }
+  if (para.classList.contains('success')) {
+    para.classList.add('success');
+  }
+});
+
+const contentDiv = document.querySelector('content');
+contentDiv.classList.toggle('noContent'); //toggles the noContent class on the content div can toggle on and off if added again its toggled off
